@@ -1,11 +1,21 @@
 import React from "react";
-import NavButtons from "./components/NavButtons";
+import HomePage from "./components/HomePage";
+import { Routes, Route } from "react-router-dom";
+import Collections from "./components/Collections";
+import Layout from "./components/Layout";
 
 const App = () => {
   return (
-    <React.Fragment>
-      <NavButtons />
-    </React.Fragment>
+    <>
+      <Routes>
+        <Route path="/">
+          <Route element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="collections" element={<Collections />} />
+          </Route>
+        </Route>
+      </Routes>
+    </>
   );
 };
 
